@@ -27,7 +27,7 @@ puts "Making scientists..."
 
 puts "Making missions..."                           
 20.times {Mission.create(name: Faker::TvShows::Buffy.unique.episode,
-                        scientist_id: Scientist.all.sample, 
-                        planet_id: Planet.all.sample)}
+                        scientist_id: Scientist.all.sample.id, 
+                        planet_id: Planet.all.sample.id)}
 
 puts "Done seeding!"                         

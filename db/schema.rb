@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_01_214743) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_06_183133) do
   create_table "missions", force: :cascade do |t|
+    t.integer "scientist_id", null: false
+    t.integer "planet_id", null: false
     t.string "name"
-    t.integer "scientist_id"
-    t.integer "planet_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["planet_id"], name: "index_missions_on_planet_id"
@@ -38,4 +38,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_01_214743) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "missions", "planets"
+  add_foreign_key "missions", "scientists"
 end
